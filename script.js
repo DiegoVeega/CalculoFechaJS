@@ -56,7 +56,18 @@ console.log("Average age %i", list.reduce((sum, {
 function getAge(birthday) {
     var ageDifMs = Date.now() - birthday;
     var ageDate = new Date(ageDifMs); // miliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
+    var anio = Math.abs(ageDate.getUTCFullYear() - 1970);
+    console.log(Math.abs(ageDate.getUTCFullYear() - 1970));
+    //Math.abs() retorna un numero, en este caso el valor numerico de "ageDate.getUTCFullYear() - 1970".
+    if (anio.getMonth == Date.now().getMonth){
+        if (anio.getDay > Date.now().getDay){
+            anio--;
+        }
+    }
+    if (anio.getMonth > Date.now().getMonth){
+        anio--; 
+    }
+    return anio;
 }
 
 console.log("Average age %i", list.reduce((sum, {
